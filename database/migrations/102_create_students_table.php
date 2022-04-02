@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('majors', function (Blueprint $table) {
-            $table->id();
-            $table->string('major_name');
+        Schema::create('students', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id')->unique();
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->double('GPA')->default(0)->max(4);
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('majors');
+        Schema::dropIfExists('students');
     }
 };

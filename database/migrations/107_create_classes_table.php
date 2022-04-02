@@ -1,8 +1,6 @@
 <?php
 
 use App\Models\Subject;
-use App\Models\Teacher;
-use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,14 +15,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('classes', function (Blueprint $table) {
-            $table->id();
+            $table->string('class_id')->unique()->primary();
             $table->date('start_date');
-            $table->integer('max_students');
-            $table->integer('current_students');
-            $table->string('status');
+            $table->integer('max_number_students');
+            $table->integer('current_number_students')->default(0);
+            $table->unsignedBigInteger('user_id');
 
-            $table->foreignIdFor(Teacher::class);
-            $table->foreignIdFor(Subject::class);
+            $table->foreign('user_id')->references('user_id')->on('teachers')->onDelete('cascade');
+            $table->foreignIdFor(Subject::class, 'subject_id')->constrained()->onDelete('cascade');
         });
     }
 

@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\Credit;
-use App\Models\Major;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('subjects', function (Blueprint $table) {
-            $table->id();
-            $table->string('subject_name');
+        Schema::create('schedules', function (Blueprint $table) {
+            $table->text('schedule');
+            $table->text('document')->nullable();
 
-            $table->foreignIdFor(Major::class);
-            $table->foreignIdFor(Credit::class);
+            $table->string('class_id')->primary()->unique();
+            $table->foreign('class_id')->references('class_id')->on('classes')->onDelete('cascade');
         });
     }
 
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subjects');
+        Schema::dropIfExists('schedules');
     }
 };

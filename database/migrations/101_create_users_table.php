@@ -15,17 +15,18 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->id('user_id');
             $table->string('full_name');
             $table->string('email')->unique()->nullable();
             $table->string('date_of_birth');
             $table->string('gender');
             $table->string('address');
-            $table->string('avatar');
+            $table->string('avatar')->nullable();
             $table->string('username')->unique();
             $table->string('password');
 
-            $table->foreignIdFor(Role::class);
+            $table->string('role_id');
+            $table->foreign('role_id')->references('role_id')->on('roles');
         });
     }
 
