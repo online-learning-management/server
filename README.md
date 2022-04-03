@@ -24,13 +24,13 @@
 
 1. create `.env` file and copy `.env.example` into `.env` file
 
-1. Change the code in `.env` file to your own settings (make sure, your database already created)
+1. Change the code in `.env` file to your own settings (make sure, `your_database_name` already created)
 
     ```.env
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
-    DB_DATABASE=online_learning_management
+    DB_DATABASE=your_database_name
     DB_USERNAME=root
     DB_PASSWORD=
     ```
