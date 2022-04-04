@@ -18,9 +18,21 @@ class StudentSeeder extends Seeder
         DB::table('students')->insert(
             [
                 [
-                    'user_id' => 3,
+                    'user_id' => 5,
                     'GPA' => 4,
-                ]
+                ],
+                [
+                    'user_id' => 6,
+                    'GPA' => 4,
+                ],
+                [
+                    'user_id' => 7,
+                    'GPA' => 4,
+                ],
+                [
+                    'user_id' => 8,
+                    'GPA' => 4,
+                ],
             ]
         );
     }

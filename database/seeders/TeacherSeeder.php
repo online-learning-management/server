@@ -24,7 +24,15 @@ class TeacherSeeder extends Seeder
                 [
                     'user_id' => 2,
                     'major_id' => 2,
-                ]
+                ],
+                [
+                    'user_id' => 3,
+                    'major_id' => 2,
+                ],
+                [
+                    'user_id' => 4,
+                    'major_id' => 1,
+                ],
             ]
         );
     }
