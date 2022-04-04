@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id')->unique()->primary();
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
-            $table->foreignIdFor(Major::class, 'major_id')->constrained()->onDelete('set null')->nullable()->default(null);
+            $table->foreignIdFor(Major::class, 'major_id')->constrained()->onDelete('cascade')->nullable()->default(null);
         });
     }
 
