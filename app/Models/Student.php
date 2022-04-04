@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     use HasFactory;
+
+    const CREATED_AT = null;
+    const UPDATED_AT = null;
+
+    protected $primaryKey = 'user_id';
+
+    protected $fillable = [
+        'user_id',
+        'GPA'
+    ];
+
+    // one to one relationship with User
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'user_id');
+    }
 }
