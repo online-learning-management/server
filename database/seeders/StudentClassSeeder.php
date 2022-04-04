@@ -19,7 +19,7 @@ class StudentClassSeeder extends Seeder
             [
                 [
                     'class_id' => 'PHP1',
-                    'user_id' => 3,
+                    'user_id' => 6,
                     'score' => 9.5,
                 ]
             ]

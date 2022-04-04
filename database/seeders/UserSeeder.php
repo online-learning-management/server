@@ -70,7 +70,7 @@ class UserSeeder extends Seeder
                     'avatar' => '',
                     'username' => 'hoangtuanhieu4',
                     'password' => '123',
-                    'role_id' => 'r2',
+                    'role_id' => 'r3',
                 ],
                 [
                     'full_name' => 'Tran Duc Ha',
@@ -114,7 +114,7 @@ class UserSeeder extends Seeder
                     'avatar' => '',
                     'username' => 'hoangtuanhieu7',
                     'password' => '123',
-                    'role_id' => 'r3',
+                    'role_id' => 'r1',
                 ],
                 [
                     'full_name' => 'Hoang Tuan Hieu',
@@ -125,7 +125,7 @@ class UserSeeder extends Seeder
                     'avatar' => '',
                     'username' => 'hoangtuanhieu8',
                     'password' => '123',
-                    'role_id' => 'r3',
+                    'role_id' => 'r1',
                 ],
             ]
         );
