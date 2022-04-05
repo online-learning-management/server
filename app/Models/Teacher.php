@@ -9,8 +9,12 @@ class Teacher extends Model
 {
     use HasFactory;
 
-    const CREATED_AT = null;
-    const UPDATED_AT = null;
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
 
     protected $primaryKey = 'user_id';
 
