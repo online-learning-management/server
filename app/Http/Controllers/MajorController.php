@@ -16,7 +16,8 @@ class MajorController extends Controller
      */
     public function index()
     {
-        //
+        $majors = Major::all();
+        return response()->json(['data' => $majors], 200);
     }
 
     /**
@@ -27,7 +28,8 @@ class MajorController extends Controller
      */
     public function store(StoreMajorRequest $request)
     {
-        //
+        Major::create($request->all());
+        return response()->json(['message' => "Tạo mới thành công!"], 201);
     }
 
     /**
@@ -36,10 +38,10 @@ class MajorController extends Controller
      * @param  \App\Models\Major  $major
      * @return \Illuminate\Http\Response
      */
-    public function show(Major $major)
-    {
-        //
-    }
+    // public function show(Major $major)
+    // {
+    //     //
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -50,7 +52,8 @@ class MajorController extends Controller
      */
     public function update(UpdateMajorRequest $request, Major $major)
     {
-        //
+        $major->update($request->all());
+        return response()->json(['message' => "Cập nhật thành công!"], 200);
     }
 
     /**
@@ -61,6 +64,7 @@ class MajorController extends Controller
      */
     public function destroy(Major $major)
     {
-        //
+        $major->delete();
+        return response()->json(['message' => "Xóa thành công!"], 200);
     }
 }

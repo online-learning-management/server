@@ -13,7 +13,7 @@ class StoreMajorRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class StoreMajorRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'major_name' => 'required|string|unique:majors',
         ];
     }
 }

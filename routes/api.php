@@ -22,6 +22,6 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::apiResource('/users', UserController::class);
-Route::apiResource('/majors', MajorController::class);
+Route::apiResource('/majors', MajorController::class)->except(['show']);
 Route::apiResource('/subjects', SubjectController::class);
 Route::apiResource('/classes', ClassController::class);
