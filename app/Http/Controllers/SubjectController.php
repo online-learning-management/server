@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Subject;
 use App\Http\Requests\StoreSubjectRequest;
 use App\Http\Requests\UpdateSubjectRequest;
+use App\Http\Resources\SubjectResource;
 
 class SubjectController extends Controller
 {
@@ -16,7 +17,8 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        //
+        $subjects = Subject::all();
+        return SubjectResource::collection($subjects);
     }
 
     /**
@@ -27,7 +29,8 @@ class SubjectController extends Controller
      */
     public function store(StoreSubjectRequest $request)
     {
-        //
+        Subject::create($request->all());
+        return response()->json(['message' => "Tạo mới thành công!"], 201);
     }
 
     /**
@@ -36,9 +39,15 @@ class SubjectController extends Controller
      * @param  \App\Models\Subject  $subject
      * @return \Illuminate\Http\Response
      */
-    public function show(Subject $subject)
+    public function show($subjectId)
     {
-        //
+        $subject = Subject::find($subjectId);
+
+        if (!$subject) {
+            return response()->json(['message' => "Không tìm thấy môn học!"], 404);
+        }
+
+        return new SubjectResource($subject);
     }
 
     /**
@@ -50,7 +59,8 @@ class SubjectController extends Controller
      */
     public function update(UpdateSubjectRequest $request, Subject $subject)
     {
-        //
+        $subject->update($request->all());
+        return response()->json(['message' => "Cập nhật thành công!"], 200);
     }
 
     /**
@@ -61,6 +71,7 @@ class SubjectController extends Controller
      */
     public function destroy(Subject $subject)
     {
-        //
+        $subject->delete();
+        return response()->json(['message' => "Xóa thành công!"], 200);
     }
 }

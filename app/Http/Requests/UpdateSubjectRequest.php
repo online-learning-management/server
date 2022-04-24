@@ -13,7 +13,7 @@ class UpdateSubjectRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class UpdateSubjectRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "subject_name" => "string|unique:subjects",
+            "major_id" => "exists:majors,id",
+            "credit_id" => "exists:credits,id"
         ];
     }
 }

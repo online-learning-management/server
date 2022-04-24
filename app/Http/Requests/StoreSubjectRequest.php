@@ -13,7 +13,7 @@ class StoreSubjectRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class StoreSubjectRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "subject_name" => "required|string|unique:subjects",
+            "major_id" => "exists:majors,id",
+            "credit_id" => "required|exists:credits,id"
         ];
     }
 }

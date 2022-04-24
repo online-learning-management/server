@@ -18,10 +18,10 @@ return new class extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
             $table->string('subject_name');
-            
-            $table->foreignIdFor(Major::class, 'major_id')->constrained()->onDelete('cascade');
-            $table->foreignIdFor(Credit::class, 'credit_id')->constrained()->onDelete('cascade');
-        
+            $table->unsignedBigInteger('major_id')->nullable();
+
+            $table->foreign('major_id')->references('id')->on('majors')->onDelete('set null');
+            $table->foreignIdFor(Credit::class, 'credit_id')->constrained();
         });
     }
 
