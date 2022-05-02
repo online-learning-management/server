@@ -19,37 +19,11 @@ class ScheduleSeeder extends Seeder
             [
                 [
                     'class_id' => 'PHP1',
-                    'schedule' => '
-                        [
-                            {
-                                "day": "monday",
-                                "lessons": ["1", "2"]
-                            }
-                        ],
-                        [
-                            {
-                                "day": "friday",
-                                "lessons": ["1", "2"]
-                            }
-                        ]
-                    ',
+                    'schedule' => '[{"day":"0","lessons":["1","2","3"]},{"day":"3","lessons":["1","2","3"]}]',
                 ],
                 [
                     'class_id' => 'TA2',
-                    'schedule' => '
-                        [
-                            {
-                                "day": "monday",
-                                "lessons": ["1", "2", "3"]
-                            }
-                        ],
-                        [
-                            {
-                                "day": "friday",
-                                "lessons": ["1", "2", "3"]
-                            }
-                        ]
-                    ',
+                    'schedule' => '[{"4":"monday","lessons":["2","3"]},{"day":"6","lessons":["1","2"]}]',
                 ]
             ]
         );
