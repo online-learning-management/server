@@ -13,7 +13,13 @@ class Subject extends Model
 
     protected $fillable = [
         'subject_name',
-        'major_id',
+        'specialty_id',
         'credit_id'
     ];
+
+    // has many Classes
+    public function classes()
+    {
+        return $this->hasMany(Classes::class);
+    }
 }

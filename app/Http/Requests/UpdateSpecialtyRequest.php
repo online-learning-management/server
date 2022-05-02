@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class StoreMajorRequest extends FormRequest
+class UpdateSpecialtyRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +25,7 @@ class StoreMajorRequest extends FormRequest
     public function rules()
     {
         return [
-            'major_name' => 'required|string|unique:majors',
+            'specialty_name' => ['required', 'string', Rule::unique('users')->ignore($this->specialty)],
         ];
     }
 }

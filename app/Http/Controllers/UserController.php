@@ -50,8 +50,8 @@ class UserController extends Controller
 
         $all = $request->all();
 
-        // remove major_id out of $all
-        unset($all['major_id']);
+        // remove specialty_id out of $all
+        unset($all['specialty_id']);
 
         $user = User::create($all);
 
@@ -60,7 +60,7 @@ class UserController extends Controller
             if ($request->role_id == 'r2') {
                 $teacher = new Teacher();
                 $teacher->user_id = $user->user_id;
-                $teacher->major_id = $request->major_id;
+                $teacher->specialty_id = $request->specialty_id;
                 $teacher->save();
             } elseif ($request->role_id == 'r3') {
                 $student = new Student();
@@ -122,9 +122,9 @@ class UserController extends Controller
         $user->update($request->all());
 
         // update teacher or student
-        if ($user->role_id == 'r2' && $request->major_id) {
+        if ($user->role_id == 'r2' && $request->specialty_id) {
             $teacher = Teacher::where('user_id', $user->user_id)->first();
-            $teacher->major_id = $request->major_id;
+            $teacher->specialty_id = $request->specialty_id;
             $teacher->save();
         } elseif ($user->role_id == 'r3' && $request->GPA) {
             $student = Student::where('user_id', $user->user_id)->first();

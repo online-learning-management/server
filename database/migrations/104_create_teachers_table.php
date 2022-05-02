@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('teachers', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id')->unique()->primary();
-            $table->unsignedBigInteger('major_id')->nullable();
+            $table->unsignedBigInteger('specialty_id')->nullable();
 
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
-            $table->foreign('major_id')->references('id')->on('majors')->onDelete('set null');
+            $table->foreign('specialty_id')->references('id')->on('specialties')->onDelete('set null');
         });
     }
 

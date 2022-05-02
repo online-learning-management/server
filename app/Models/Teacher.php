@@ -20,12 +20,18 @@ class Teacher extends Model
 
     protected $fillable = [
         'user_id',
-        'major_id'
+        'specialty_id'
     ];
 
     // one to one relationship with User
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'user_id');
+    }
+
+    // has many Classes
+    public function classes()
+    {
+        return $this->hasMany(Classes::class, 'user_id', 'user_id');
     }
 }

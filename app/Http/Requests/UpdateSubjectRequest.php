@@ -25,7 +25,7 @@ class UpdateSubjectRequest extends FormRequest
     {
         return [
             "subject_name" => "string|unique:subjects",
-            "major_id" => "exists:majors,id",
+            "specialty_id" => "exists:specialties,id",
             "credit_id" => "exists:credits,id"
         ];
     }

@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Major extends Model
+class Specialty extends Model
 {
     use HasFactory;
 
     public $timestamps = false;
 
-    protected $fillable = ['major_name'];
+    protected $fillable = ['specialty_name'];
 }

@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClassController;
-use App\Http\Controllers\MajorController;
+use App\Http\Controllers\SpecialtyController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +22,6 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::apiResource('/users', UserController::class);
-Route::apiResource('/majors', MajorController::class)->except(['show']);
+Route::apiResource('/specialties', SpecialtyController::class)->except(['show']);
 Route::apiResource('/subjects', SubjectController::class);
 Route::apiResource('/classes', ClassController::class);

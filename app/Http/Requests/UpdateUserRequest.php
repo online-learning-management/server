@@ -30,7 +30,7 @@ class UpdateUserRequest extends FormRequest
             'date_of_birth' => 'date',
             'gender' => 'string',
             'username' => ['string', Rule::unique('users')->ignore($this->user, 'user_id')],
-            'major_id' => 'numeric'
+            'specialty_id' => 'numeric'
         ];
     }
 }
