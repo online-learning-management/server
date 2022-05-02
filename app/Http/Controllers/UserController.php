@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Resources\UserResource;
+use App\Models\Specialty;
 use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
@@ -22,12 +23,18 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $roleId = $request->role_id;
+        $specialty_id = request()->specialty_id;
         $limit = $request->limit ?? 10;
 
         if ($roleId == 'r1') {
             $admins = User::where('role_id', 'r1')->get();
             return UserResource::collection($admins);
         } elseif ($roleId == 'r2') {
+            if ($specialty_id) {
+                $teachers = Teacher::with('user')->where('specialty_id', $specialty_id)->get();
+                return UserResource::collection($teachers);
+            }
+
             $teachers = User::with('teacher')->where('role_id', 'r2')->paginate($limit);
             return UserResource::collection($teachers);
         } elseif ($roleId == 'r3') {
@@ -89,14 +96,14 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show($user)
+    public function show($id)
     {
-        $user = User::find($user);
+        $user = User::find($id);
 
         if (!$user) {
             return response()->json([
                 'message' => 'User not found'
-            ], 404);
+            ], 422);
         }
 
         return new UserResource($user);

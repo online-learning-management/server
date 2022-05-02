@@ -7,6 +7,7 @@ use App\Models\Subject;
 use App\Http\Requests\StoreSubjectRequest;
 use App\Http\Requests\UpdateSubjectRequest;
 use App\Http\Resources\SubjectResource;
+use App\Models\Specialty;
 
 class SubjectController extends Controller
 {
@@ -17,8 +18,14 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        $subjects = Subject::all();
-        return SubjectResource::collection($subjects);
+        $specialty_id = request()->specialty_id;
+
+        if ($specialty_id) {
+            $subjects = Specialty::find($specialty_id)->subjects;
+            return SubjectResource::collection($subjects);
+        }
+
+        return SubjectResource::collection(Subject::all());
     }
 
     /**

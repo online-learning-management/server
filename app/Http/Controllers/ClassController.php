@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Classes;
 use App\Http\Requests\StoreClassesRequest;
 use App\Http\Requests\UpdateClassesRequest;
+use App\Http\Resources\ClassResource;
 
 class ClassController extends Controller
 {
@@ -16,7 +17,9 @@ class ClassController extends Controller
      */
     public function index()
     {
-        //
+        $limit = request()->limit ?? 10;
+
+        return ClassResource::collection(Classes::paginate($limit));
     }
 
     /**
@@ -36,9 +39,17 @@ class ClassController extends Controller
      * @param  \App\Models\Classes  $classes
      * @return \Illuminate\Http\Response
      */
-    public function show(Classes $classes)
+    public function show($id)
     {
-        //
+        $class = Classes::with('schedules')->find($id);
+
+        if (!$class) {
+            return response()->json([
+                'message' => 'Không tìm thấy lớp học!'
+            ], 422);
+        }
+
+        return new ClassResource($class);
     }
 
     /**

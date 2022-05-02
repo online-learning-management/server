@@ -14,10 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('schedules', function (Blueprint $table) {
+            $table->id();
             $table->text('schedule');
             $table->text('document')->nullable();
 
-            $table->string('class_id')->primary()->unique();
+            $table->string('class_id');
             $table->foreign('class_id')->references('class_id')->on('classes')->onDelete('cascade');
         });
     }

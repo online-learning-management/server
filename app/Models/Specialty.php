@@ -12,4 +12,16 @@ class Specialty extends Model
     public $timestamps = false;
 
     protected $fillable = ['specialty_name'];
+
+    // one to many relationship with Subject
+    public function subjects()
+    {
+        return $this->hasMany(Subject::class);
+    }
+
+    // one to many relationship with Teacher
+    public function teachers()
+    {
+        return $this->hasMany(Teacher::class);
+    }
 }
