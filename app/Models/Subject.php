@@ -17,7 +17,7 @@ class Subject extends Model
         'credit_id'
     ];
 
-    // has many Classes
+    // many to one relationship with Classes
     public function classes()
     {
         return $this->hasMany(Classes::class);
