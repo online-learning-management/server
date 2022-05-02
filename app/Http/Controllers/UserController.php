@@ -11,7 +11,6 @@ use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use PhpParser\Node\Stmt\TryCatch;
 
 class UserController extends Controller
 {
@@ -23,19 +22,19 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $roleId = $request->role_id;
+        $limit = $request->limit ?? 10;
 
         if ($roleId == 'r1') {
             $admins = User::where('role_id', 'r1')->get();
             return UserResource::collection($admins);
         } elseif ($roleId == 'r2') {
-            $teachers = User::with('teacher')->where('role_id', 'r2')->get();
+            $teachers = User::with('teacher')->where('role_id', 'r2')->paginate($limit);
             return UserResource::collection($teachers);
         } elseif ($roleId == 'r3') {
-            $students = User::with('student')->where('role_id', 'r3')->get();
+            $students = User::with('student')->where('role_id', 'r3')->paginate($limit);
             return UserResource::collection($students);
         } else {
-            $users = User::all();
-            return response()->json(['data' => $users], 200);
+            return response()->json(['message' => 'Không tìm thấy role_id!'], 404);
         }
     }
 
@@ -55,7 +54,7 @@ class UserController extends Controller
         unset($all['major_id']);
 
         $user = User::create($all);
-        
+
         // if save teacher or student fail so rollback user
         try {
             if ($request->role_id == 'r2') {
