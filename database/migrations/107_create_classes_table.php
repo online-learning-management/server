@@ -16,8 +16,9 @@ return new class extends Migration
     {
         Schema::create('classes', function (Blueprint $table) {
             $table->string('class_id')->unique()->primary();
-            $table->date('start_date');
-            $table->integer('max_number_students');
+            // $table->date('start_date');
+            $table->string('start_date');
+            $table->integer('max_number_students')->default(70);
             $table->integer('current_number_students')->default(0);
             $table->unsignedBigInteger('user_id');
 

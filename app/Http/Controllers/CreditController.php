@@ -16,7 +16,10 @@ class CreditController extends Controller
      */
     public function index()
     {
-        //
+        $credits = Credit::all();
+        return response()->json([
+            'data' => $credits
+        ], 200);
     }
 
     /**

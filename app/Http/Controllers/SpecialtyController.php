@@ -31,16 +31,22 @@ class SpecialtyController extends Controller
         return response()->json(['message' => "Tạo mới thành công!"], 201);
     }
 
-    // /**
-    //  * Display the specified resource.
-    //  *
-    //  * @param  \App\Models\Specialty  $specialty
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function show(Specialty $specialty)
-    // {
-    //     //
-    // }
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Specialty  $specialty
+     * @return \Illuminate\Http\Response
+     */
+    public function show($specialtyId)
+    {
+        $specialty = Specialty::find($specialtyId);
+
+        if (!$specialty) {
+            return response()->json(['message' => "Không tìm thấy chuyên khoa!"], 404);
+        }
+
+        return response()->json(['data' => $specialty], 200);
+    }
 
     /**
      * Update the specified resource in storage.
@@ -49,9 +55,15 @@ class SpecialtyController extends Controller
      * @param  \App\Models\Specialty  $specialty
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSpecialtyRequest $request, Specialty $specialty)
+    public function update(UpdateSpecialtyRequest $request, $specialty)
     {
-        $request->update($request->all());
+        $specialty = Specialty::find($specialty);
+
+        if (!$specialty) {
+            return response()->json(['message' => "Không tìm thấy chuyên khoa!"], 404);
+        }
+
+        $specialty->update($request->all());
         return response()->json(['message' => "Cập nhật thành công!"], 200);
     }
 

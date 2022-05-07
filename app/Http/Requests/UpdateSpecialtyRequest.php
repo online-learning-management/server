@@ -25,7 +25,7 @@ class UpdateSpecialtyRequest extends FormRequest
     public function rules()
     {
         return [
-            'specialty_name' => ['required', 'string', Rule::unique('users')->ignore($this->specialty)],
+            'specialty_name' => ['required', 'string', Rule::unique('specialties')->ignore($this->specialty)],
         ];
     }
 }

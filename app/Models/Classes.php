@@ -21,6 +21,7 @@ class Classes extends Model
     protected $primaryKey = 'class_id';
 
     protected $fillable = [
+        'class_id',
         'start_date',
         'max_number_students',
         'current_number_students',

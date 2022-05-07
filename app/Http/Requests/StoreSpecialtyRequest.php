@@ -25,7 +25,7 @@ class StoreSpecialtyRequest extends FormRequest
     public function rules()
     {
         return [
-            'specialty_name' => ['required', 'string', Rule::unique('users')->ignore($this->specialty)],
+            'specialty_name' => 'required|string|unique:specialties',
         ];
     }
 }

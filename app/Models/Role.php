@@ -9,6 +9,9 @@ class Role extends Model
 {
     use HasFactory;
 
+    // disable auto increment
+    public $incrementing = false;
+
     protected $primaryKey = 'role_id';
 
     // one to many relationship with User

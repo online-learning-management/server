@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateSubjectRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class UpdateSubjectRequest extends FormRequest
     public function rules()
     {
         return [
-            "subject_name" => "string|unique:subjects",
+            "subject_name" => ['string', Rule::unique('subjects')->ignore($this->subject)],
             "specialty_id" => "exists:specialties,id",
             "credit_id" => "exists:credits,id"
         ];
