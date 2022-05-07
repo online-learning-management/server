@@ -26,10 +26,10 @@ class UpdateUserRequest extends FormRequest
     {
         return [
             'full_name' => 'string',
-            'email' => ['string', 'email', Rule::unique('users')->ignore($this->user, 'user_id')],
+            'email' => ['email', Rule::unique('users')->ignore($this->user_id, 'user_id')],
             'date_of_birth' => 'date',
             'gender' => 'string',
-            'username' => ['string', Rule::unique('users')->ignore($this->user, 'user_id')],
+            'username' => ['string', Rule::unique('users')->ignore($this->user_id, 'user_id')],
             'specialty_id' => 'numeric'
         ];
     }

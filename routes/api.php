@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\ClassController;
+use App\Http\Controllers\CreditController;
 use App\Http\Controllers\SpecialtyController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +25,9 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::apiResource('/users', UserController::class);
-Route::apiResource('/specialties', SpecialtyController::class)->except(['show']);
+Route::apiResource('/teachers', TeacherController::class);
+Route::apiResource('/students', StudentController::class);
+Route::apiResource('/specialties', SpecialtyController::class);
 Route::apiResource('/subjects', SubjectController::class);
 Route::apiResource('/classes', ClassController::class);
+Route::apiResource('/credits', CreditController::class);

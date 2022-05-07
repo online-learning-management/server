@@ -7,7 +7,6 @@ use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Resources\UserResource;
-use App\Models\Specialty;
 use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
@@ -24,7 +23,7 @@ class UserController extends Controller
     {
         $roleId = $request->role_id;
         $specialty_id = request()->specialty_id;
-        $limit = $request->limit ?? 10;
+        $limit = $request->limit ?? 100;
 
         if ($roleId == 'r1') {
             $admins = User::where('role_id', 'r1')->get();
@@ -98,7 +97,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
+        $user = User::with('teacher.classes.schedules', 'student')->find($id);
 
         if (!$user) {
             return response()->json([
@@ -106,7 +105,19 @@ class UserController extends Controller
             ], 422);
         }
 
-        return new UserResource($user);
+        return response()->json([
+            'data' => $user
+        ], 200);
+
+        // return new UserResource($user);
+
+        // $teacher = Teacher::with('classes.schedules', 'user')->find($id);
+
+        // // $schedules = $teacher->classes->map(fn ($class) => $class->schedules);
+
+        // return response()->json([
+        //     'data' => $teacher
+        // ], 200);
     }
 
     /**
@@ -116,10 +127,13 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUserRequest $request, $user)
+    public function update(UpdateUserRequest $request, $userId)
     {
+        // $out = new \Symfony\Component\Console\Output\ConsoleOutput();
+        // $out->writeln($request->us);
+
         // check if user exist
-        $user = User::find($user);
+        $user = User::find($userId);
         if (!$user) {
             return response()->json([
                 'message' => 'User not found'
