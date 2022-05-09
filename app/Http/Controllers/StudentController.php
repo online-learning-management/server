@@ -36,9 +36,11 @@ class StudentController extends Controller
     {
         DB::beginTransaction();
 
-        $user = User::create($request->all());
-
         try {
+            $all = $request->all();
+            $all['role_id'] = 'r3';
+            $user = User::create($all);
+
             $student = new Student();
             $student->user_id = $user->user_id;
             $student->save();
@@ -64,9 +66,19 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
+    public function show($userId)
     {
-        //
+        $user = User::with('student')->find($userId);
+
+        if (!$user) {
+            return response()->json([
+                'message' => 'User not found'
+            ], 422);
+        }
+
+        return response()->json([
+            'data' => $user
+        ], 200);
     }
 
     /**
