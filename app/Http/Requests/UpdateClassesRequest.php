@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateClassesRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class UpdateClassesRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,12 @@ class UpdateClassesRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'class_id' => ['string', Rule::unique('classes')->ignore($this->class_id, 'class_id')],
+            'start_date' => 'string',
+            'max_number_students' => 'numeric',
+            'schedules' => 'string',
+            'user_id' => 'exists:users',
+            'subject_id' => 'exists:subjects,id'
         ];
     }
 }

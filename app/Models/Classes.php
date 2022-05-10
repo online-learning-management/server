@@ -25,6 +25,7 @@ class Classes extends Model
         'start_date',
         'max_number_students',
         'current_number_students',
+        'schedules',
 
         'user_id',
         'subject_id',
@@ -34,12 +35,6 @@ class Classes extends Model
     public function studentClasses()
     {
         return $this->hasMany(StudentClass::class, 'class_id', 'class_id');
-    }
-
-    // one to many relationship with Schedule
-    public function schedules()
-    {
-        return $this->hasMany(Schedule::class, 'class_id', 'class_id');
     }
 
     // many to one relationship with Teacher

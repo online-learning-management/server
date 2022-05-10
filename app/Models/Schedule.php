@@ -21,10 +21,4 @@ class Schedule extends Model
         'document',
         'class_id',
     ];
-
-    // many to one relationship with Classes
-    public function classes()
-    {
-        return $this->belongsTo(Classes::class, 'class_id', 'class_id');
-    }
 }

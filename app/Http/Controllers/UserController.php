@@ -97,7 +97,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::with('teacher.classes.schedules', 'student')->find($id);
+        $user = User::with('teacher.classes', 'student')->find($id);
 
         if (!$user) {
             return response()->json([
@@ -105,19 +105,7 @@ class UserController extends Controller
             ], 422);
         }
 
-        return response()->json([
-            'data' => $user
-        ], 200);
-
-        // return new UserResource($user);
-
-        // $teacher = Teacher::with('classes.schedules', 'user')->find($id);
-
-        // // $schedules = $teacher->classes->map(fn ($class) => $class->schedules);
-
-        // return response()->json([
-        //     'data' => $teacher
-        // ], 200);
+        return new UserResource($user);
     }
 
     /**

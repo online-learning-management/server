@@ -24,6 +24,7 @@ class ClassSeeder extends Seeder
                     'current_number_students' => 20,
                     'user_id' => 1,
                     'subject_id' => 1,
+                    'schedules' => '[{"day":0,"lessons":[0,1,2,3]},{"day":1,"lessons":[0,1,2,3]}]'
                 ],
                 [
                     'class_id' => 'TA2',
@@ -32,6 +33,7 @@ class ClassSeeder extends Seeder
                     'current_number_students' => 20,
                     'user_id' => 2,
                     'subject_id' => 2,
+                    'schedules' => '[{"day":0,"lessons":[0,1,2,3]},{"day":1,"lessons":[0,1,2,3]}]'
                 ]
             ]
         );

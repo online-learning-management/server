@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('max_number_students')->default(70);
             $table->integer('current_number_students')->default(0);
             $table->unsignedBigInteger('user_id');
+            $table->text('schedules');
 
             $table->foreign('user_id')->references('user_id')->on('teachers')->onDelete('cascade');
             $table->foreignIdFor(Subject::class, 'subject_id')->constrained()->onDelete('cascade');

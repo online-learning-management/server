@@ -7,8 +7,6 @@ use App\Models\Classes;
 use App\Http\Requests\StoreClassesRequest;
 use App\Http\Requests\UpdateClassesRequest;
 use App\Http\Resources\ClassResource;
-use App\Models\Schedule;
-use Illuminate\Support\Facades\DB;
 
 class ClassController extends Controller
 {
@@ -32,33 +30,7 @@ class ClassController extends Controller
      */
     public function store(StoreClassesRequest $request)
     {
-        DB::beginTransaction();
-
-        // $out = new \Symfony\Component\Console\Output\ConsoleOutput();
-        // $out->writeln($request);
-
-        try {
-            $class = Classes::create($request->all());
-
-            // check schedules is exists so create schedule with class_id
-            if ($request->schedules && count($request->schedules) > 0) {
-                foreach ($request->schedules as $schedule) {
-                    Schedule::create([
-                        'class_id' => $class->class_id,
-                        'schedule' => $schedule
-                    ]);
-                }
-            }
-        } catch (\Exception $e) {
-            DB::rollback();
-
-            return response()->json([
-                'message' => 'Create class failed',
-                'error' => $e->getMessage()
-            ], 500);
-        }
-
-        DB::commit();
+        Classes::create($request->all());
 
         return response()->json([
             'message' => 'Tạo mới lớp học thành công!'
@@ -73,7 +45,7 @@ class ClassController extends Controller
      */
     public function show($id)
     {
-        $class = Classes::with('schedules')->find($id);
+        $class = Classes::find($id);
 
         if (!$class) {
             return response()->json([
@@ -93,9 +65,21 @@ class ClassController extends Controller
      * @param  \App\Models\Classes  $classes
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateClassesRequest $request, Classes $classes)
+    public function update(UpdateClassesRequest $request, $classId)
     {
-        //
+        $class = Classes::find($classId);
+
+        if (!$class) {
+            return response()->json([
+                'message' => 'Không tìm thấy lớp học!'
+            ], 422);
+        }
+
+        $class->update($request->all());
+
+        return response()->json([
+            'message' => 'Cập nhật lớp học thành công!'
+        ], 200);
     }
 
     /**
@@ -104,7 +88,20 @@ class ClassController extends Controller
      * @param  \App\Models\Classes  $classes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Classes $classes)
+    public function destroy($classId)
     {
+        $class = Classes::find($classId);
+
+        if (!$class) {
+            return response()->json([
+                'message' => 'Không tìm thấy lớp học!'
+            ], 422);
+        }
+
+        $class->delete();
+
+        return response()->json([
+            'message' => 'Xóa lớp học thành công!'
+        ], 200);
     }
 }

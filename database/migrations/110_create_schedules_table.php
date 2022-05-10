@@ -18,8 +18,8 @@ return new class extends Migration
             $table->text('schedule');
             $table->text('document')->nullable();
 
-            $table->string('class_id');
-            $table->foreign('class_id')->references('class_id')->on('classes')->onDelete('cascade');
+            // $table->string('class_id');
+            // $table->foreign('class_id')->references('class_id')->on('classes')->onDelete('cascade');
         });
     }
 

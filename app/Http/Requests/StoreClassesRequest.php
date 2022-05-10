@@ -26,8 +26,8 @@ class StoreClassesRequest extends FormRequest
         return [
             'class_id' => 'required|string|unique:classes',
             'start_date' => 'required|string',
-            'max_number_students' => 'required',
-            'current_number_students' => '',
+            'max_number_students' => 'required|numeric',
+            'schedules' => 'string',
             'user_id' => 'required|exists:users',
             'subject_id' => 'required|exists:subjects,id'
         ];
