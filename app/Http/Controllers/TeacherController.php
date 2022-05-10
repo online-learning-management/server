@@ -21,14 +21,14 @@ class TeacherController extends Controller
     public function index()
     {
         $limit = request()->limit ?? 100;
-        // $specialty_id = request()->specialty_id;
+        $specialty_id = request()->specialty_id;
 
-        // if ($specialty_id) {
-        //     $teachers = Teacher::with('user')->where('specialty_id', $specialty_id)->get();
-        //     return UserResource::collection($teachers);
-        // }
+        if ($specialty_id) {
+            $teachers = Teacher::with('user')->where('specialty_id', $specialty_id)->get();
+            return UserResource::collection($teachers);
+        }
 
-        $teachers = User::where('role_id', 'r2')->with('teacher')->paginate($limit);
+        $teachers = User::where('role_id', 'r2')->with('teacher.specialty')->paginate($limit);
         return UserResource::collection($teachers);
     }
 

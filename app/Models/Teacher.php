@@ -34,4 +34,10 @@ class Teacher extends Model
     {
         return $this->hasMany(Classes::class, 'user_id', 'user_id');
     }
+
+    // one to many relationship with Specialty
+    public function specialty()
+    {
+        return $this->belongsTo(Specialty::class);
+    }
 }
