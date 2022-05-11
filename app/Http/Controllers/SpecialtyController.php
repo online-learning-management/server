@@ -73,8 +73,14 @@ class SpecialtyController extends Controller
      * @param  \App\Models\Specialty  $specialty
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Specialty $specialty)
+    public function destroy($specialtyId)
     {
+        $specialty = Specialty::find($specialtyId);
+
+        if (!$specialty) {
+            return response()->json(['message' => "Không tìm thấy chuyên khoa!"], 404);
+        }
+
         $specialty->delete();
         return response()->json(['message' => "Xóa thành công!"], 200);
     }
