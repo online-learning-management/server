@@ -55,6 +55,8 @@ class UserController extends Controller
         DB::beginTransaction();
 
         $all = $request->all();
+        // hash password
+        $all['password'] = bcrypt($all['password']);
 
         // remove specialty_id out of $all
         unset($all['specialty_id']);

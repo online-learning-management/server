@@ -39,6 +39,8 @@ class StudentController extends Controller
         try {
             $all = $request->all();
             $all['role_id'] = 'r3';
+            // hash password
+            $all['password'] = bcrypt($all['password']);
             $user = User::create($all);
 
             $student = new Student();

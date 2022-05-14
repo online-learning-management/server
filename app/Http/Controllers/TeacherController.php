@@ -45,6 +45,8 @@ class TeacherController extends Controller
         try {
             $all = $request->all();
             $all['role_id'] = 'r2';
+            // hash password
+            $all['password'] = bcrypt($all['password']);
             $user = User::create($all);
 
             $teacher = new Teacher();

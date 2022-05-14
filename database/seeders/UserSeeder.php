@@ -24,8 +24,8 @@ class UserSeeder extends Seeder
                     'gender' => 'male',
                     'address' => 'Bac Ninh',
                     'avatar' => '',
-                    'username' => 'tranducha',
-                    'password' => '123',
+                    'username' => 'admin',
+                    'password' => bcrypt('admin'),
                     'role_id' => 'r2',
                 ],
                 [
@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
                     'address' => 'Bac Ninh',
                     'avatar' => '',
                     'username' => 'dovanhau',
-                    'password' => '123',
+                    'password' => bcrypt('123'),
                     'role_id' => 'r2',
                 ],
                 [
@@ -47,7 +47,7 @@ class UserSeeder extends Seeder
                     'address' => 'Bac Ninh',
                     'avatar' => '',
                     'username' => 'hoangtuanhieu',
-                    'password' => '123',
+                    'password' => bcrypt('123'),
                     'role_id' => 'r2',
                 ],
                 [
@@ -58,7 +58,7 @@ class UserSeeder extends Seeder
                     'address' => 'Bac Ninh',
                     'avatar' => '',
                     'username' => 'hoangtuanhieu3',
-                    'password' => '123',
+                    'password' => bcrypt('123'),
                     'role_id' => 'r2',
                 ],
                 [
@@ -69,7 +69,7 @@ class UserSeeder extends Seeder
                     'address' => 'Bac Ninh',
                     'avatar' => '',
                     'username' => 'hoangtuanhieu4',
-                    'password' => '123',
+                    'password' => bcrypt('123'),
                     'role_id' => 'r3',
                 ],
                 [
@@ -80,7 +80,7 @@ class UserSeeder extends Seeder
                     'address' => 'Bac Ninh',
                     'avatar' => '',
                     'username' => 'tranducha5',
-                    'password' => '123',
+                    'password' => bcrypt('123'),
                     'role_id' => 'r3',
                 ],
                 [
@@ -91,7 +91,7 @@ class UserSeeder extends Seeder
                     'address' => 'Bac Ninh',
                     'avatar' => '',
                     'username' => 'dovanhau51',
-                    'password' => '123',
+                    'password' => bcrypt('123'),
                     'role_id' => 'r3',
                 ],
                 [
@@ -102,7 +102,7 @@ class UserSeeder extends Seeder
                     'address' => 'Bac Ninh',
                     'avatar' => '',
                     'username' => 'hoangtuanhieu6',
-                    'password' => '123',
+                    'password' => bcrypt('123'),
                     'role_id' => 'r3',
                 ],
                 [
@@ -113,7 +113,7 @@ class UserSeeder extends Seeder
                     'address' => 'Bac Ninh',
                     'avatar' => '',
                     'username' => 'hoangtuanhieu7',
-                    'password' => '123',
+                    'password' => bcrypt('123'),
                     'role_id' => 'r1',
                 ],
                 [
@@ -124,7 +124,7 @@ class UserSeeder extends Seeder
                     'address' => 'Bac Ninh',
                     'avatar' => '',
                     'username' => 'hoangtuanhieu8',
-                    'password' => '123',
+                    'password' => bcrypt('123'),
                     'role_id' => 'r1',
                 ],
             ]
