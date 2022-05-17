@@ -28,8 +28,10 @@ class StoreClassesRequest extends FormRequest
             'start_date' => 'required|string',
             'max_number_students' => 'required|numeric',
             'schedules' => 'string',
+            'description' => 'string',
+            'image' => 'string',
             'user_id' => 'required|exists:users',
-            'subject_id' => 'required|exists:subjects,id'
+            'subject_id' => 'required|exists:subjects,id',
         ];
     }
 }

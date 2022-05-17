@@ -26,6 +26,8 @@ class Classes extends Model
         'max_number_students',
         'current_number_students',
         'schedules',
+        'description',
+        'image',
 
         'user_id',
         'subject_id',

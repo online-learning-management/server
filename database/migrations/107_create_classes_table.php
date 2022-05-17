@@ -20,11 +20,14 @@ return new class extends Migration
             $table->string('start_date');
             $table->integer('max_number_students')->default(70);
             $table->integer('current_number_students')->default(0);
-            $table->unsignedBigInteger('user_id');
-            $table->text('schedules');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('subject_id')->nullable();
+            $table->text('schedules')->nullable();
+            $table->text('description')->nullable();
+            $table->string('image')->nullable();
 
-            $table->foreign('user_id')->references('user_id')->on('teachers')->onDelete('cascade');
-            $table->foreignIdFor(Subject::class, 'subject_id')->constrained()->onDelete('cascade');
+            $table->foreign('user_id')->references('user_id')->on('teachers')->onDelete('set null');
+            $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('set null');
         });
     }
 
