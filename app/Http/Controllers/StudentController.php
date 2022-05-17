@@ -70,7 +70,7 @@ class StudentController extends Controller
      */
     public function show($userId)
     {
-        $user = User::with('student.studentClass.class')->find($userId);
+        $user = User::with('student.studentClass.class.subject')->find($userId);
 
         if (!$user) {
             return response()->json([
