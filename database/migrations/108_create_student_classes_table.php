@@ -20,7 +20,7 @@ return new class extends Migration
 
             $table->foreign('user_id')->references('user_id')->on('students')->onDelete('cascade');
             $table->foreign('class_id')->references('class_id')->on('classes')->onDelete('cascade');
-            
+
             $table->primary(['user_id', 'class_id']);
         });
     }

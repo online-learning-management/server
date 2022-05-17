@@ -15,7 +15,7 @@ class SpecialtyController extends Controller
      */
     public function index()
     {
-        $specialties = Specialty::all();
+        $specialties = Specialty::with('subjects')->get();
         return response()->json(['data' => $specialties], 200);
     }
 
