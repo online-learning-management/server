@@ -55,7 +55,7 @@ class TeacherController extends Controller
             DB::rollback();
 
             return response()->json([
-                'message' => 'Create user failed',
+                'message' => 'Tạo tài khoản giáo viên thất bại!',
                 'error' => $e->getMessage()
             ], 500);
         }
@@ -63,7 +63,7 @@ class TeacherController extends Controller
         DB::commit();
 
         return response()->json([
-            'message' => 'User created successfully'
+            'message' => 'Tạo tài khoản giáo viên thành công!'
         ], 201);
     }
 
@@ -79,7 +79,7 @@ class TeacherController extends Controller
 
         if (!$user) {
             return response()->json([
-                'message' => 'User not found'
+                'message' => 'Không tìm thấy giáo viên!'
             ], 422);
         }
 
@@ -102,7 +102,7 @@ class TeacherController extends Controller
 
         if (!$user) {
             return response()->json([
-                'message' => 'User not found'
+                'message' => 'Không tìm thấy giáo viên!'
             ], 404);
         }
 
@@ -116,7 +116,7 @@ class TeacherController extends Controller
         }
 
         return response()->json([
-            'message' => 'User updated successfully'
+            'message' => 'Cập nhật giáo viên thành công!'
         ], 200);
     }
 
@@ -132,14 +132,14 @@ class TeacherController extends Controller
 
         if (!$user) {
             return response()->json([
-                'message' => 'User not found'
+                'message' => 'Không tìm thấy giáo viên!'
             ], 404);
         }
 
         $user->delete();
 
         return response()->json([
-            'message' => 'User deleted successfully'
+            'message' => 'Xóa giáo viên thành công!'
         ], 200);
     }
 }

@@ -77,7 +77,7 @@ class UserController extends Controller
             DB::rollback();
 
             return response()->json([
-                'message' => 'Create user failed',
+                'message' => 'Tạo tài khoản thất bài!',
                 'error' => $e->getMessage()
             ], 500);
         }
@@ -85,7 +85,7 @@ class UserController extends Controller
         DB::commit();
 
         return response()->json([
-            'message' => 'User created successfully'
+            'message' => 'Tạo tài khoản thành công!'
         ], 201);
     }
 
@@ -101,7 +101,7 @@ class UserController extends Controller
 
         if (!$user) {
             return response()->json([
-                'message' => 'User not found'
+                'message' => 'Không tìm thấy tài khoản!'
             ], 422);
         }
 
@@ -124,7 +124,7 @@ class UserController extends Controller
         $user = User::find($userId);
         if (!$user) {
             return response()->json([
-                'message' => 'User not found'
+                'message' => 'Không tìm thấy tài khoản'
             ], 404);
         }
 
@@ -142,7 +142,7 @@ class UserController extends Controller
         }
 
         return response()->json([
-            'message' => 'User updated successfully'
+            'message' => 'Cập nhật thành công!'
         ], 200);
     }
 
@@ -158,14 +158,14 @@ class UserController extends Controller
 
         if (!$user) {
             return response()->json([
-                'message' => 'User not found'
+                'message' => 'Không tìm thấy tài khoản!'
             ], 404);
         }
 
         $user->delete();
 
         return response()->json([
-            'message' => 'User deleted successfully'
+            'message' => 'Xóa tài khoản thành công!'
         ], 200);
     }
 }

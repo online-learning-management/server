@@ -33,7 +33,7 @@ class ClassController extends Controller
         Classes::create($request->all());
 
         return response()->json([
-            'message' => 'Tạo mới lớp học thành công!'
+            'message' => 'Tạo lớp học thành công!'
         ], 201);
     }
 

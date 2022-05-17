@@ -48,7 +48,7 @@ class StudentController extends Controller
             DB::rollback();
 
             return response()->json([
-                'message' => 'Create user failed',
+                'message' => 'Tạo tài khoản sinh viên thất bại!',
                 'error' => $e->getMessage()
             ], 500);
         }
@@ -56,7 +56,7 @@ class StudentController extends Controller
         DB::commit();
 
         return response()->json([
-            'message' => 'User created successfully'
+            'message' => 'Tạo tài khoản sinh viên thành công!'
         ], 201);
     }
 
@@ -72,7 +72,7 @@ class StudentController extends Controller
 
         if (!$user) {
             return response()->json([
-                'message' => 'User not found'
+                'message' => 'Không tìm thấy sinh viên!'
             ], 422);
         }
 
@@ -94,7 +94,7 @@ class StudentController extends Controller
         $user = User::find($user);
         if (!$user) {
             return response()->json([
-                'message' => 'User not found'
+                'message' => 'Không tìm thấy sinh viên!'
             ], 404);
         }
 
@@ -133,4 +133,5 @@ class StudentController extends Controller
             'message' => 'Xóa sinh viên thành công!'
         ], 200);
     }
+
 }

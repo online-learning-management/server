@@ -38,7 +38,7 @@ class SubjectController extends Controller
     public function store(StoreSubjectRequest $request)
     {
         Subject::create($request->all());
-        return response()->json(['message' => "Tạo mới thành công!"], 201);
+        return response()->json(['message' => "Tạo mới môn học thành công!"], 201);
     }
 
     /**
@@ -68,7 +68,7 @@ class SubjectController extends Controller
     public function update(UpdateSubjectRequest $request, Subject $subject)
     {
         $subject->update($request->all());
-        return response()->json(['message' => "Cập nhật thành công!"], 200);
+        return response()->json(['message' => "Cập nhật môn học thành công!"], 200);
     }
 
     /**
@@ -80,6 +80,6 @@ class SubjectController extends Controller
     public function destroy(Subject $subject)
     {
         $subject->delete();
-        return response()->json(['message' => "Xóa thành công!"], 200);
+        return response()->json(['message' => "Xóa môn học thành công!"], 200);
     }
 }
