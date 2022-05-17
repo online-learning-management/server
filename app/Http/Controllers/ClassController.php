@@ -19,7 +19,7 @@ class ClassController extends Controller
     {
         $limit = request()->limit ?? 100;
 
-        return ClassResource::collection(Classes::paginate($limit));
+        return ClassResource::collection(Classes::with('teacher.user', 'subject')->paginate($limit));
     }
 
     /**
