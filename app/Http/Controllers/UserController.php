@@ -11,6 +11,7 @@ use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -99,7 +100,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::with('teacher.classes', 'student')->find($id);
+        $user = User::find($id);
 
         if (!$user) {
             return response()->json([
@@ -168,6 +169,39 @@ class UserController extends Controller
 
         return response()->json([
             'message' => 'User deleted successfully'
+        ], 200);
+    }
+
+    public function upload(Request $request, $userId)
+    {
+        $request->validate([
+            'avatar' => 'mimes:jpg,png,jpeg,svg',
+            'email' => ['email', Rule::unique('users')->ignore($userId, 'user_id')]
+        ]);
+
+        $user = User::find($userId);
+
+        if (!$user) {
+            return response()->json([
+                'message' => 'Không tìm thấy người dùng!'
+            ], 404);
+        }
+
+        if ($request->hasFile('avatar')) {
+            $ext = $request->file('avatar')->extension();
+            $generate_unique_file_name = md5(time()) . '.' . $ext;
+            $request->file('avatar')->move('images', $generate_unique_file_name, 'local');
+
+            $user->avatar = 'images/' . $generate_unique_file_name;
+        }
+
+        if ($request->email) $user->email = $request->email;
+
+        $user->save();
+
+        return response()->json([
+            'message' => 'Cập nhật thông tin thành công!',
+            'data' => $user
         ], 200);
     }
 }

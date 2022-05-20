@@ -89,6 +89,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::group(["middleware" => ["auth:sanctum"]], function () {
   Route::post('/logout', [AuthController::class, 'logout']);
 
+  Route::post('/users/upload/{userId}', [UserController::class, 'upload']);
   Route::apiResource('/users', UserController::class);
   Route::apiResource('/teachers', TeacherController::class);
   Route::apiResource('/students', StudentController::class);
