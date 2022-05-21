@@ -45,6 +45,20 @@
 
 1. Run `php artisan db:seed` to generate the fake data
 
+### Artisan command
+
+| php artisan serve                                                                                                                                       | run server                               |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| php artisan make:model ModelName -m (migration)                                                                                                         | generate Models, migrations code         |
+| php artisan migrate                                                                                                                                     | create all tables from migrations folder |
+| php artisan make:controller ModelNameController --model=ModelName --requests (create requests file) --api (Controller for api unlike web (- -resource)) | generate Controller and Request          |
+| php artisan route:list --except-vendor (except default routes) -v (view middleware)                                                                     | show all the routes                      |
+| composer create-project laravel/laravel example-app                                                                                                     | create project via composer              |
+| php artisan make:resource User --collection (or php artisan make:resource UserCollection)                                                               | create Resources                         |
+| php artisan make:seeder UserSeeder                                                                                                                      | create Seeder to generate fake data      |
+| php artisan db:seed                                                                                                                                     | run generate data                        |
+| php artisan migrate:refresh --seed                                                                                                                      | refresh table and data                   |
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
