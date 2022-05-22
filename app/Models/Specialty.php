@@ -9,7 +9,7 @@ class Specialty extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
+    // public $timestamps = false;
 
     protected $fillable = ['specialty_name'];
 

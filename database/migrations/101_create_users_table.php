@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('avatar')->nullable();
             $table->string('username')->unique();
             $table->string('password');
+            $table->timestamps();
 
             $table->string('role_id');
             $table->foreign('role_id')->references('role_id')->on('roles');

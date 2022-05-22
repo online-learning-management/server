@@ -16,7 +16,7 @@ class User extends Authenticatable
      *
      * @var bool
      */
-    public $timestamps = false;
+    // public $timestamps = false;
 
     protected $primaryKey = 'user_id';
 
