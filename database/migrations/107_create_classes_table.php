@@ -25,6 +25,8 @@ return new class extends Migration
             $table->text('schedules')->nullable();
             $table->text('description')->nullable();
             $table->string('image')->nullable();
+            $table->string('bg_color')->nullable();
+            $table->timestamps();
 
             $table->foreign('user_id')->references('user_id')->on('teachers')->onDelete('set null');
             $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('set null');

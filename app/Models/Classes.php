@@ -14,7 +14,7 @@ class Classes extends Model
      *
      * @var bool
      */
-    public $timestamps = false;
+    // public $timestamps = false;
 
     public $incrementing = false;
 
@@ -28,6 +28,7 @@ class Classes extends Model
         'schedules',
         'description',
         'image',
+        'bg_color',
 
         'user_id',
         'subject_id',
