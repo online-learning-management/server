@@ -51,4 +51,10 @@ class Classes extends Model
     {
         return $this->belongsTo(Subject::class);
     }
+
+    // one to many relationship with Document
+    public function documents()
+    {
+        return $this->hasMany(Document::class, 'class_id', 'class_id');
+    }
 }

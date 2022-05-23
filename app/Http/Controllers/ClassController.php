@@ -45,7 +45,7 @@ class ClassController extends Controller
      */
     public function show($id)
     {
-        $class = Classes::find($id);
+        $class = Classes::with('documents', 'teacher.user')->find($id);
 
         if (!$class) {
             return response()->json([
