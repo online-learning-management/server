@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\StudentClass;
 use App\Http\Requests\StoreStudentClassRequest;
 use App\Http\Requests\UpdateStudentClassRequest;
+use App\Models\Classes;
 
 class StudentClassController extends Controller
 {
@@ -27,6 +28,12 @@ class StudentClassController extends Controller
     public function store(StoreStudentClassRequest $request)
     {
         StudentClass::create($request->all());
+
+        // update current number of students in class
+        $class = Classes::find($request->class_id);
+        $class->current_number_students = $class->current_number_students + 1;
+        $class->save();
+
         return response()->json(['message' => "Đăng ký học phần thành công!"], 201);
     }
 
