@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\CreditController;
+use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\SpecialtyController;
 use App\Http\Controllers\StudentClassController;
 use App\Http\Controllers\SubjectController;
@@ -98,5 +99,6 @@ Route::group(["middleware" => ["auth:sanctum"]], function () {
   Route::apiResource('/specialties', SpecialtyController::class);
   Route::apiResource('/subjects', SubjectController::class);
   Route::apiResource('/classes', ClassController::class);
+  Route::apiResource('/documents', DocumentController::class);
   Route::apiResource('/credits', CreditController::class);
 });

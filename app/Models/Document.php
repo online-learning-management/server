@@ -10,8 +10,10 @@ class Document extends Model
     use HasFactory;
 
     protected $fillable = [
+        'name',
         'link',
-        'document'
+        'document',
+        'class_id'
     ];
 
     // many to one relationship with Classes
