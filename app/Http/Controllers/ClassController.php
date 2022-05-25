@@ -19,8 +19,9 @@ class ClassController extends Controller
     {
         $limit = request()->limit ?? 100;
         $sort_by = request()->sort_by ?? 'created_at';
+        $order = request()->order ?? 'asc';
 
-        return ClassResource::collection(Classes::with('teacher.user', 'subject')->orderBy($sort_by, 'desc')->paginate($limit));
+        return ClassResource::collection(Classes::with('teacher.user', 'subject')->orderBy($sort_by, $order)->paginate($limit));
     }
 
     /**
