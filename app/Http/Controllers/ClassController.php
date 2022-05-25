@@ -18,8 +18,9 @@ class ClassController extends Controller
     public function index()
     {
         $limit = request()->limit ?? 100;
+        $sort_by = request()->sort_by ?? 'created_at';
 
-        return ClassResource::collection(Classes::with('teacher.user', 'subject')->paginate($limit));
+        return ClassResource::collection(Classes::with('teacher.user', 'subject')->orderBy($sort_by, 'desc')->paginate($limit));
     }
 
     /**
