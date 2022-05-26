@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
                     'avatar' => '',
                     'username' => 'admin',
                     'password' => bcrypt('admin'),
-                    'role_id' => 'r2',
+                    'role_id' => 'r1',
                 ],
                 [
                     'full_name' => 'Do Van Hau',
