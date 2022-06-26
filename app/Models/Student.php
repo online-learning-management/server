@@ -28,4 +28,10 @@ class Student extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
+
+    // one to many relationship with StudentClass
+    public function studentClass()
+    {
+        return $this->hasMany(StudentClass::class, 'user_id', 'user_id');
+    }
 }

@@ -45,6 +45,8 @@ class TeacherController extends Controller
         try {
             $all = $request->all();
             $all['role_id'] = 'r2';
+            // hash password
+            $all['password'] = bcrypt($all['password']);
             $user = User::create($all);
 
             $teacher = new Teacher();
@@ -75,7 +77,7 @@ class TeacherController extends Controller
      */
     public function show($userId)
     {
-        $user = User::with('teacher.classes')->find($userId);
+        $user = User::with('teacher.classes.subject')->find($userId);
 
         if (!$user) {
             return response()->json([

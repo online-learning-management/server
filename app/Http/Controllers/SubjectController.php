@@ -26,7 +26,7 @@ class SubjectController extends Controller
             return SubjectResource::collection($subjects);
         }
 
-        return SubjectResource::collection(Subject::paginate($limit));
+        return SubjectResource::collection(Subject::with('specialty', 'credit')->paginate($limit));
     }
 
     /**

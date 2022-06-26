@@ -13,10 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('specialties', function (Blueprint $table) {
+        Schema::create('documents', function (Blueprint $table) {
             $table->id();
-            $table->string('specialty_name')->unique();
+            $table->string('name')->nullable();
+            $table->string('link')->nullable();
+            $table->string('document')->nullable();
             $table->timestamps();
+            $table->string('class_id');
+
+            $table->foreign('class_id')->references('class_id')->on('classes')->onDelete('cascade');
         });
     }
 
@@ -27,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('specialties');
+        Schema::dropIfExists('documents');
     }
 };

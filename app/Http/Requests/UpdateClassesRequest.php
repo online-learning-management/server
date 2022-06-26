@@ -29,6 +29,8 @@ class UpdateClassesRequest extends FormRequest
             'start_date' => 'string',
             'max_number_students' => 'numeric',
             'schedules' => 'string',
+            'description' => 'string',
+            'image' => 'string',
             'user_id' => 'exists:users',
             'subject_id' => 'exists:subjects,id'
         ];

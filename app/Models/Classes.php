@@ -14,7 +14,7 @@ class Classes extends Model
      *
      * @var bool
      */
-    public $timestamps = false;
+    // public $timestamps = false;
 
     public $incrementing = false;
 
@@ -26,6 +26,9 @@ class Classes extends Model
         'max_number_students',
         'current_number_students',
         'schedules',
+        'description',
+        'image',
+        'bg_color',
 
         'user_id',
         'subject_id',
@@ -47,5 +50,11 @@ class Classes extends Model
     public function subject()
     {
         return $this->belongsTo(Subject::class);
+    }
+
+    // one to many relationship with Document
+    public function documents()
+    {
+        return $this->hasMany(Document::class, 'class_id', 'class_id');
     }
 }
