@@ -29,6 +29,12 @@ class Subject extends Model
     //     return $this->belongsTo(Specialty::class);
     // }
 
+    // one to many relationship with StudentSubject
+    public function studentSubject()
+    {
+        return $this->hasMany(StudentSubject::class);
+    }
+
     // one to many relationship with Credit
     public function credit()
     {

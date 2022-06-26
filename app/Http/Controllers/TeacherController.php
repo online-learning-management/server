@@ -78,7 +78,8 @@ class TeacherController extends Controller
      */
     public function show($userId)
     {
-        $user = User::with('teacher.classes.subject')->find($userId);
+        // $user = User::with('teacher.classes.subject')->find($userId);
+        $user = User::with('teacher.teacherSubject.subject')->find($userId);
 
         if (!$user) {
             return response()->json([
