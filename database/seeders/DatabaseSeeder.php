@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
                 TeacherSeeder::class,
                 CreditSeeder::class,
                 SubjectSeeder::class,
+                TeacherSubjectSeeder::class,
                 ClassSeeder::class,
                 StudentClassSeeder::class,
                 LessonSeeder::class,
