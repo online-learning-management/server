@@ -18,8 +18,8 @@ class UserSeeder extends Seeder
         DB::table('users')->insert(
             [
                 [
-                    'full_name' => 'Tran Duc Ha',
-                    'email' => 'tranducha@gmail.com',
+                    'full_name' => 'admin',
+                    'email' => 'admin@gmail.com',
                     'date_of_birth' => '1996-01-01',
                     'gender' => 'male',
                     'address' => 'Bac Ninh',
@@ -27,6 +27,28 @@ class UserSeeder extends Seeder
                     'username' => 'admin',
                     'password' => bcrypt('admin'),
                     'role_id' => 'r1',
+                ],
+                [
+                    'full_name' => 'teacher',
+                    'email' => 'teacher@gmail.com',
+                    'date_of_birth' => '1996-01-01',
+                    'gender' => 'male',
+                    'address' => 'Bac Ninh',
+                    'avatar' => '',
+                    'username' => 'teacher',
+                    'password' => bcrypt('teacher'),
+                    'role_id' => 'r2',
+                ],
+                [
+                    'full_name' => 'Hoang Tuan Hieu',
+                    'email' => 'tranducha8@gmail.com',
+                    'date_of_birth' => '1996-01-01',
+                    'gender' => 'fe-male',
+                    'address' => 'Bac Ninh',
+                    'avatar' => '',
+                    'username' => 'hoangtuanhieu8',
+                    'password' => bcrypt('123'),
+                    'role_id' => 'r2',
                 ],
                 [
                     'full_name' => 'Do Van Hau',
@@ -60,6 +82,17 @@ class UserSeeder extends Seeder
                     'username' => 'hoangtuanhieu3',
                     'password' => bcrypt('123'),
                     'role_id' => 'r2',
+                ],
+                [
+                    'full_name' => 'student',
+                    'email' => 'student@gmail.com',
+                    'date_of_birth' => '1996-01-01',
+                    'gender' => 'male',
+                    'address' => 'Bac Ninh',
+                    'avatar' => '',
+                    'username' => 'student',
+                    'password' => bcrypt('student'),
+                    'role_id' => 'r3',
                 ],
                 [
                     'full_name' => 'Hoang Tuan Hieu',
@@ -114,18 +147,7 @@ class UserSeeder extends Seeder
                     'avatar' => '',
                     'username' => 'hoangtuanhieu7',
                     'password' => bcrypt('123'),
-                    'role_id' => 'r1',
-                ],
-                [
-                    'full_name' => 'Hoang Tuan Hieu',
-                    'email' => 'tranducha8@gmail.com',
-                    'date_of_birth' => '1996-01-01',
-                    'gender' => 'fe-male',
-                    'address' => 'Bac Ninh',
-                    'avatar' => '',
-                    'username' => 'hoangtuanhieu8',
-                    'password' => bcrypt('123'),
-                    'role_id' => 'r1',
+                    'role_id' => 'r3',
                 ],
             ]
         );

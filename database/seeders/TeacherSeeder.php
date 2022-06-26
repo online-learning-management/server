@@ -18,10 +18,6 @@ class TeacherSeeder extends Seeder
         DB::table('teachers')->insert(
             [
                 [
-                    'user_id' => 1,
-                    // 'specialty_id' => 1,
-                ],
-                [
                     'user_id' => 2,
                     // 'specialty_id' => 2,
                 ],
@@ -31,6 +27,14 @@ class TeacherSeeder extends Seeder
                 ],
                 [
                     'user_id' => 4,
+                    // 'specialty_id' => 1,
+                ],
+                [
+                    'user_id' => 5,
+                    // 'specialty_id' => 1,
+                ],
+                [
+                    'user_id' => 6,
                     // 'specialty_id' => 1,
                 ],
             ]

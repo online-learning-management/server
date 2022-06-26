@@ -18,15 +18,35 @@ class StudentClassSeeder extends Seeder
         DB::table('student_classes')->insert(
             [
                 [
-                    'class_id' => 'PHP1',
-                    'user_id' => 6,
-                    'score' => 9.5,
+                    'class_id' => 'TA-CNTT',
+                    'user_id' => 7,
+                    // 'score' => 9.5,
                 ],
                 [
-                    'class_id' => 'TA2',
-                    'user_id' => 6,
-                    'score' => 9.5,
-                ]
+                    'class_id' => 'CSDL',
+                    'user_id' => 8,
+                    // 'score' => 9.5,
+                ],
+                [
+                    'class_id' => 'LSD',
+                    'user_id' => 9,
+                    // 'score' => 9.5,
+                ],
+                [
+                    'class_id' => 'MMT',
+                    'user_id' => 10,
+                    // 'score' => 9.5,
+                ],
+                [
+                    'class_id' => 'PHP',
+                    'user_id' => 11,
+                    // 'score' => 9.5,
+                ],
+                [
+                    'class_id' => 'TA-CNTT',
+                    'user_id' => 12,
+                    // 'score' => 9.5,
+                ],
             ]
         );
     }
