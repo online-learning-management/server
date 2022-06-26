@@ -26,7 +26,7 @@ class UpdateSubjectRequest extends FormRequest
     {
         return [
             "subject_name" => ['string', Rule::unique('subjects')->ignore($this->subject)],
-            "specialty_id" => "exists:specialties,id",
+            // "specialty_id" => "exists:specialties,id",
             "credit_id" => "exists:credits,id"
         ];
     }

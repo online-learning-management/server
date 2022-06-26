@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
                 RoleSeeder::class,
                 UserSeeder::class,
                 StudentSeeder::class,
-                SpecialtySeeder::class,
+                // SpecialtySeeder::class,
                 TeacherSeeder::class,
                 CreditSeeder::class,
                 SubjectSeeder::class,

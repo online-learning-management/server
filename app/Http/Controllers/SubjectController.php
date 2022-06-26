@@ -18,15 +18,16 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        $specialty_id = request()->specialty_id;
+        // $specialty_id = request()->specialty_id;
         $limit = request()->limit ?? 100;
 
-        if ($specialty_id) {
-            $subjects = Specialty::find($specialty_id)->subjects;
-            return SubjectResource::collection($subjects);
-        }
+        // if ($specialty_id) {
+        //     $subjects = Specialty::find($specialty_id)->subjects;
+        //     return SubjectResource::collection($subjects);
+        // }
 
-        return SubjectResource::collection(Subject::with('specialty', 'credit')->paginate($limit));
+        // return SubjectResource::collection(Subject::with('specialty', 'credit')->paginate($limit));
+        return SubjectResource::collection(Subject::with('credit')->paginate($limit));
     }
 
     /**

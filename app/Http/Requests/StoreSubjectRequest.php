@@ -25,7 +25,7 @@ class StoreSubjectRequest extends FormRequest
     {
         return [
             "subject_name" => "required|string|unique:subjects",
-            "specialty_id" => "exists:specialties,id",
+            // "specialty_id" => "exists:specialties,id",
             "credit_id" => "required|exists:credits,id"
         ];
     }

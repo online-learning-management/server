@@ -21,14 +21,15 @@ class TeacherController extends Controller
     public function index()
     {
         $limit = request()->limit ?? 100;
-        $specialty_id = request()->specialty_id;
+        // $specialty_id = request()->specialty_id;
 
-        if ($specialty_id) {
-            $teachers = Teacher::with('user')->where('specialty_id', $specialty_id)->get();
-            return UserResource::collection($teachers);
-        }
+        // if ($specialty_id) {
+        //     $teachers = Teacher::with('user')->where('specialty_id', $specialty_id)->get();
+        //     return UserResource::collection($teachers);
+        // }
 
-        $teachers = User::where('role_id', 'r2')->with('teacher.specialty')->paginate($limit);
+        // $teachers = User::where('role_id', 'r2')->with('teacher.specialty')->paginate($limit);
+        $teachers = User::where('role_id', 'r2')->paginate($limit);
         return UserResource::collection($teachers);
     }
 
@@ -51,7 +52,7 @@ class TeacherController extends Controller
 
             $teacher = new Teacher();
             $teacher->user_id = $user->user_id;
-            $teacher->specialty_id = $request->specialty_id;
+            // $teacher->specialty_id = $request->specialty_id;
             $teacher->save();
         } catch (\Exception $e) {
             DB::rollback();
@@ -110,12 +111,12 @@ class TeacherController extends Controller
 
         $user->update($request->all());
 
-        // update teacher or student
-        if ($request->specialty_id) {
-            $teacher = Teacher::where('user_id', $user->user_id)->first();
-            $teacher->specialty_id = $request->specialty_id;
-            $teacher->save();
-        }
+        // update teacher
+        // if ($request->specialty_id) {
+        //     $teacher = Teacher::where('user_id', $user->user_id)->first();
+        //     $teacher->specialty_id = $request->specialty_id;
+        //     $teacher->save();
+        // }
 
         return response()->json([
             'message' => 'Cập nhật giáo viên thành công!'

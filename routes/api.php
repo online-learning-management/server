@@ -42,9 +42,6 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/classes', [ClassController::class, 'index']);
 // Route::get('/classes/{class_id}', [ClassController::class, 'show']);
 
-// Route::get('/specialties', [SpecialtyController::class, 'index']);
-// Route::get('/specialties/{specialty_id}', [SpecialtyController::class, 'show']);
-
 // Route::get('/subjects', [SubjectController::class, 'index']);
 // Route::get('/subjects/{subject_id}', [SubjectController::class, 'show']);
 
@@ -71,10 +68,6 @@ use Illuminate\Support\Facades\Route;
 //   Route::put('/classes/{class_id}', [ClassController::class, 'update']);
 //   Route::delete('/classes/{class_id}', [ClassController::class, 'destroy']);
 
-//   Route::post('/specialties', [SpecialtyController::class, 'store']);
-//   Route::put('/specialties/{specialty_id}', [SpecialtyController::class, 'update']);
-//   Route::delete('/specialties/{specialty_id}', [SpecialtyController::class, 'destroy']);
-
 //   Route::post('/subjects', [SubjectController::class, 'store']);
 //   Route::put('/subjects/{subject_id}', [SubjectController::class, 'update']);
 //   Route::delete('/subjects/{subject_id}', [SubjectController::class, 'destroy']);
@@ -96,7 +89,7 @@ Route::group(["middleware" => ["auth:sanctum"]], function () {
   Route::apiResource('/teachers', TeacherController::class);
   Route::apiResource('/students', StudentController::class);
   Route::apiResource('/student-class', StudentClassController::class);
-  Route::apiResource('/specialties', SpecialtyController::class);
+  // Route::apiResource('/specialties', SpecialtyController::class);
   Route::apiResource('/subjects', SubjectController::class);
   Route::apiResource('/classes', ClassController::class);
   Route::apiResource('/documents', DocumentController::class);

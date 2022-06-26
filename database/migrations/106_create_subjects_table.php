@@ -17,9 +17,9 @@ return new class extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
             $table->string('subject_name');
-            $table->unsignedBigInteger('specialty_id')->nullable();
+            // $table->unsignedBigInteger('specialty_id')->nullable();
 
-            $table->foreign('specialty_id')->references('id')->on('specialties')->onDelete('set null');
+            // $table->foreign('specialty_id')->references('id')->on('specialties')->onDelete('set null');
             $table->foreignIdFor(Credit::class, 'credit_id')->constrained();
         });
     }

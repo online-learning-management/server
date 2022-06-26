@@ -19,17 +19,17 @@ class SubjectSeeder extends Seeder
             [
                 [
                     'subject_name' => 'Tiếng anh công nghệ thông tin',
-                    'specialty_id' => 1,
+                    // 'specialty_id' => 1,
                     'credit_id' => 1,
                 ],
                 [
                     'subject_name' => 'Lập trình web bằng PHP',
-                    'specialty_id' => 2,
+                    // 'specialty_id' => 2,
                     'credit_id' => 1,
                 ],
                 [
                     'subject_name' => 'Tiếng anh công nghệ thông tin 2',
-                    'specialty_id' => 1,
+                    // 'specialty_id' => 1,
                     'credit_id' => 2,
                 ]
             ]

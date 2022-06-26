@@ -20,7 +20,7 @@ class Teacher extends Model
 
     protected $fillable = [
         'user_id',
-        'specialty_id'
+        // 'specialty_id'
     ];
 
     // one to one relationship with User
@@ -36,8 +36,8 @@ class Teacher extends Model
     }
 
     // one to many relationship with Specialty
-    public function specialty()
-    {
-        return $this->belongsTo(Specialty::class);
-    }
+    // public function specialty()
+    // {
+    //     return $this->belongsTo(Specialty::class);
+    // }
 }
