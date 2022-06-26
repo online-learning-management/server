@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('student_classes', function (Blueprint $table) {
-            $table->double('score')->nullable();
+            // $table->double('score')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->string('class_id');
 

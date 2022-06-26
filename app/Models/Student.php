@@ -20,7 +20,7 @@ class Student extends Model
 
     protected $fillable = [
         'user_id',
-        'GPA'
+        // 'GPA'
     ];
 
     // one to one relationship with User
