@@ -42,7 +42,7 @@ class Teacher extends Model
     // }
 
     // one to many relationship with TeacherSubject
-    public function teacherSubject()
+    public function teacherSubjects()
     {
         return $this->hasMany(TeacherSubject::class, 'user_id', 'user_id');
     }

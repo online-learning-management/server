@@ -15,10 +15,10 @@ class TeacherSubject extends Model
     ];
 
     // one to many relationship with Classes
-    public function classes()
-    {
-        return $this->hasMany(Classes::class);
-    }
+    // public function classes()
+    // {
+    //     return $this->hasMany(Classes::class);
+    // }
 
     // many to one relationship with Teacher
     public function teacher()

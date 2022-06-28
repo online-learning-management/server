@@ -37,6 +37,10 @@ class TeacherSubjectSeeder extends Seeder
                     'user_id' => 6,
                     'subject_id' => 5,
                 ],
+                [
+                    'user_id' => 2,
+                    'subject_id' => 3,
+                ],
             ]
         );
     }

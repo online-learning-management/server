@@ -30,9 +30,9 @@ class Classes extends Model
         'image',
         'bg_color',
 
-        'teacher_subject_id',
-        // 'user_id',
-        // 'subject_id',
+        // 'teacher_subject_id',
+        'user_id',
+        'subject_id',
     ];
 
     // one to many relationship with StudentClasses
@@ -42,22 +42,22 @@ class Classes extends Model
     }
 
     // many to one relationship with Teacher
-    // public function teacher()
-    // {
-    //     return $this->belongsTo(Teacher::class, 'user_id', 'user_id');
-    // }
+    public function teacher()
+    {
+        return $this->belongsTo(Teacher::class, 'user_id', 'user_id');
+    }
 
     // many to one relationship with Subject
-    // public function subject()
-    // {
-    //     return $this->belongsTo(Subject::class);
-    // }
+    public function subject()
+    {
+        return $this->belongsTo(Subject::class);
+    }
 
     // many to one relationship with TeacherSubject
-    public function teacherSubject()
-    {
-        return $this->belongsTo(TeacherSubject::class);
-    }
+    // public function teacherSubject()
+    // {
+    //     return $this->belongsTo(TeacherSubject::class);
+    // }
 
     // one to many relationship with Document
     public function documents()

@@ -26,16 +26,14 @@ return new class extends Migration
             $table->string('bg_color')->nullable();
             $table->timestamps();
 
+            // $table->unsignedBigInteger('teacher_subject_id');
+            // $table->foreign('teacher_subject_id')->references('id')->on('teacher_subjects')->onDelete('cascade');
 
-            $table->unsignedBigInteger('teacher_subject_id');
-            $table->foreign('teacher_subject_id')->references('id')->on('teacher_subjects')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('subject_id')->nullable();
 
-            // $table->unsignedBigInteger('user_id')->nullable();
-            // $table->unsignedBigInteger('subject_id')->nullable();
-
-            // $table->foreign('user_id')->references('user_id')->on('teachers')->onDelete('set null');
-            // $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('set null');
-
+            $table->foreign('user_id')->references('user_id')->on('teachers')->onDelete('set null');
+            $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('set null');
         });
     }
 
