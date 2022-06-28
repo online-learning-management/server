@@ -19,47 +19,47 @@ class SubjectSeeder extends Seeder
             [
                 [
                     'subject_name' => 'Tiếng anh công nghệ thông tin',
-                    // 'specialty_id' => 1,
+                    'specialty_id' => 1,
                     'credit_id' => 1,
                 ],
                 [
                     'subject_name' => 'Lập trình web bằng PHP',
-                    // 'specialty_id' => 2,
+                    'specialty_id' => 2,
                     'credit_id' => 1,
                 ],
                 [
                     'subject_name' => 'Lập trình cơ sở dữ liệu',
-                    // 'specialty_id' => 1,
+                    'specialty_id' => 1,
                     'credit_id' => 2,
                 ],
                 [
                     'subject_name' => 'Lịch sử đảng',
-                    // 'specialty_id' => 1,
+                    'specialty_id' => 2,
                     'credit_id' => 2,
                 ],
                 [
                     'subject_name' => 'Mạng máy tính',
-                    // 'specialty_id' => 1,
+                    'specialty_id' => 1,
                     'credit_id' => 2,
                 ],
                 [
                     'subject_name' => 'Truyền thông đa phương tiện',
-                    // 'specialty_id' => 1,
+                    'specialty_id' => 1,
                     'credit_id' => 2,
                 ],
                 [
                     'subject_name' => 'Thiết kế web',
-                    // 'specialty_id' => 1,
+                    'specialty_id' => 2,
                     'credit_id' => 2,
                 ],
                 [
                     'subject_name' => 'Nhập môn lập trình',
-                    // 'specialty_id' => 1,
+                    'specialty_id' => 1,
                     'credit_id' => 2,
                 ],
                 [
                     'subject_name' => '.net',
-                    // 'specialty_id' => 1,
+                    'specialty_id' => 2,
                     'credit_id' => 2,
                 ],
             ]

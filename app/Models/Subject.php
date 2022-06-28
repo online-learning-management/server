@@ -24,10 +24,10 @@ class Subject extends Model
     }
 
     // one to many relationship with Specialty
-    // public function specialty()
-    // {
-    //     return $this->belongsTo(Specialty::class);
-    // }
+    public function specialty()
+    {
+        return $this->belongsTo(Specialty::class);
+    }
 
     // one to many relationship with StudentSubject
     public function studentSubject()

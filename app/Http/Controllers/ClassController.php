@@ -57,7 +57,7 @@ class ClassController extends Controller
             ], 422);
         }
 
-        // $class->specialty_id = $class->subject->specialty_id;
+        $class->specialty_id = $class->subject->specialty_id;
 
         return new ClassResource($class);
     }

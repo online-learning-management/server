@@ -89,7 +89,7 @@ Route::group(["middleware" => ["auth:sanctum"]], function () {
   Route::apiResource('/teachers', TeacherController::class);
   Route::apiResource('/students', StudentController::class);
   Route::apiResource('/student-class', StudentClassController::class);
-  // Route::apiResource('/specialties', SpecialtyController::class);
+  Route::apiResource('/specialties', SpecialtyController::class);
   Route::apiResource('/subjects', SubjectController::class);
   Route::apiResource('/classes', ClassController::class);
   Route::apiResource('/documents', DocumentController::class);
