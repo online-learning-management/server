@@ -21,7 +21,7 @@ class ClassController extends Controller
         $sort_by = request()->sort_by ?? 'created_at';
         $order = request()->order ?? 'asc';
 
-        return ClassResource::collection(Classes::with('teacher.user', 'subject')->orderBy($sort_by, $order)->paginate($limit));
+        return ClassResource::collection(Classes::with('teacherSubject.teacher.user', 'teacherSubject.subject')->orderBy($sort_by, $order)->paginate($limit));
     }
 
     /**
@@ -47,7 +47,7 @@ class ClassController extends Controller
      */
     public function show($id)
     {
-        $class = Classes::with('documents', 'teacher.user')->find($id);
+        $class = Classes::with('documents', 'teacherSubject.teacher.user')->find($id);
 
         if (!$class) {
             return response()->json([
