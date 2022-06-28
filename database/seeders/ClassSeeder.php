@@ -27,7 +27,8 @@ class ClassSeeder extends Seeder
                     // 'teacher_subject_id' => 1,
                     'description' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ",
                     'image' => 'https://files.fullstack.edu.vn/f8-prod/banners/Banner_03_youtube.png',
-                    'schedules' => '[{"day":0,"lessons":[0,1,2,3]},{"day":1,"lessons":[0,1,2,3]}]'
+                    'schedules' => '[{"day":0,"lessons":[0,1,2,3]},{"day":1,"lessons":[0,1,2,3]}]',
+                    'bg_color' => 'linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)'
                 ],
                 [
                     'class_id' => 'PHP',
@@ -39,7 +40,8 @@ class ClassSeeder extends Seeder
                     // 'teacher_subject_id' => 2,
                     'description' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ",
                     'image' => 'https://files.fullstack.edu.vn/f8-prod/banners/Banner_03_youtube.png',
-                    'schedules' => '[{"day":0,"lessons":[11, 12, 13]},{"day":3,"lessons":[11, 12, 13]}]'
+                    'schedules' => '[{"day":0,"lessons":[11, 12, 13]},{"day":3,"lessons":[11, 12, 13]}]',
+                    'bg_color' => 'linear-gradient(to right, #fc4a1a, #f7b733)'
                 ],
                 [
                     'class_id' => 'CSDL',
@@ -51,7 +53,8 @@ class ClassSeeder extends Seeder
                     // 'teacher_subject_id' => 3,
                     'description' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ",
                     'image' => 'https://files.fullstack.edu.vn/f8-prod/banners/Banner_03_youtube.png',
-                    'schedules' => '[{"day":2,"lessons":[0,1,2,3]},{"day":3,"lessons":[0,1,2,3]}]'
+                    'schedules' => '[{"day":2,"lessons":[0,1,2,3]},{"day":3,"lessons":[0,1,2,3]}]',
+                    'bg_color' => 'linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)'
                 ],
                 [
                     'class_id' => 'LSD',
@@ -63,7 +66,8 @@ class ClassSeeder extends Seeder
                     // 'teacher_subject_id' => 4,
                     'description' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ",
                     'image' => 'https://files.fullstack.edu.vn/f8-prod/banners/Banner_03_youtube.png',
-                    'schedules' => '[{"day":4,"lessons":[11, 12, 13]},{"day":5,"lessons":[11, 12, 13]}]'
+                    'schedules' => '[{"day":4,"lessons":[11, 12, 13]},{"day":5,"lessons":[11, 12, 13]}]',
+                    'bg_color' => 'linear-gradient(to right, #fc4a1a, #f7b733)'
                 ],
                 [
                     'class_id' => 'MMT',
@@ -75,7 +79,8 @@ class ClassSeeder extends Seeder
                     // 'teacher_subject_id' => 5,
                     'description' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ",
                     'image' => 'https://files.fullstack.edu.vn/f8-prod/banners/Banner_03_youtube.png',
-                    'schedules' => '[{"day":4,"lessons":[1, 2, 3]},{"day":5,"lessons":[1, 2, 3]}]'
+                    'schedules' => '[{"day":4,"lessons":[1, 2, 3]},{"day":5,"lessons":[1, 2, 3]}]',
+                    'bg_color' => 'linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)'
                 ],
             ]
         );
