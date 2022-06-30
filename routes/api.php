@@ -89,8 +89,8 @@ Route::group(["middleware" => ["auth:sanctum"]], function () {
   Route::apiResource('/teachers', TeacherController::class);
   Route::apiResource('/students', StudentController::class);
 
+  Route::put('/student-class/delete', [StudentClassController::class, 'destroy']);
   Route::apiResource('/student-class', StudentClassController::class)->except('destroy');
-  Route::delete('/student-class', [StudentClassController::class, 'destroy']);
 
   Route::apiResource('/specialties', SpecialtyController::class);
   Route::apiResource('/subjects', SubjectController::class);
