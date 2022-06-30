@@ -66,8 +66,24 @@ class StudentClassController extends Controller
      * @param  \App\Models\StudentClass  $studentClass
      * @return \Illuminate\Http\Response
      */
-    public function destroy(StudentClass $studentClass)
+    public function destroy()
     {
-        //
+        // find and delete by user_id, class_id
+        $studentClass = StudentClass::where('user_id', request()->user_id)->where('class_id', request()->class_id)->first();
+
+        if (!$studentClass) {
+            return response()->json([
+                'message' => 'Không tìm thấy lớp học!'
+            ], 422);
+        }
+
+        StudentClass::where('user_id', request()->user_id)->where('class_id', request()->class_id)->delete();
+
+        // update current number of students in class
+        $class = Classes::find(request()->class_id);
+        $class->current_number_students = $class->current_number_students - 1;
+        $class->save();
+
+        return response()->json(['message' => "Hủy đăng ký học phần thành công!"], 200);
     }
 }
