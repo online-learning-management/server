@@ -16,7 +16,13 @@ class StudentClassController extends Controller
      */
     public function index()
     {
-        //
+        $class_id = request()->class_id;
+
+        $student_classes = StudentClass::with('student.user')->where('class_id', $class_id)->get();
+
+        return response()->json([
+            'data' => $student_classes,
+        ]);
     }
 
     /**
