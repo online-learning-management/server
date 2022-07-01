@@ -10,6 +10,7 @@ use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherSubjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -97,4 +98,5 @@ Route::group(["middleware" => ["auth:sanctum"]], function () {
   Route::apiResource('/classes', ClassController::class);
   Route::apiResource('/documents', DocumentController::class);
   Route::apiResource('/credits', CreditController::class);
+  Route::apiResource('/teacher-subject', TeacherSubjectController::class);
 });
